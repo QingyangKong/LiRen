@@ -4,14 +4,14 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract LiRenContract is ERC1155, Ownable {
-    uint256 public constant ARTWORK = 0;
-    uint256 public constant PHOTO = 0;
+    uint256 public constant LiRenBoy = 0;
+    uint256 public constant LiRenGirl = 1;
 
     mapping(uint256 => string) private _uri;
 
     constructor() ERC1155("") {
-        _mint(msg.sender, ARTWORK, 1, "");
-        _mint(msg.sender, PHOTO, 2, "");
+        _mint(msg.sender, LiRenBoy, 1, "");
+        _mint(msg.sender, LiRenGirl, 2, "");
     }
 
     function mint(address account, uint256 id, uint256 amount) public onlyOwner {
